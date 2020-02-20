@@ -17,17 +17,56 @@
     </style>
     <title>Hello, world!</title>
   </head>
+
   <body>
     <div id="scroll_counter"></div>
     <div class="container" style="padding:1000px 0;">
+
+<!--SCROLLAMA HTML-->
+
+<section id='scroll'>
+  <!-- graphic container -->
+  <div class='scroll__graphic'>
+    <!-- actual graphic/chart -->
+    <div class='chart'>
+      <p>0</p>
+    </div>
+  </div>
+
+ <!-- step/text container --> 
+ <div class='scroll__text'>
+    <div class='step' data-step='1'>
+      <p>STEP 1</p>
+    </div>
+    <div class='step' data-step='2'>
+      <p>STEP 2</p>
+    </div>
+   <div class='step' data-step='3'>
+      <p>STEP 3</p>
+   </div>
+   <div class='step' data-step='4'>
+      <p>STEP 4</p>
+   </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--circles-->
 
     <svg 
       data-0="position:relative;top:!0;transform:!translate3d(0,0,0)" 
       data-center-center="position:fixed;top:!50%;transform:!translate3d(0,-50%,0)"
       data-1300="position:absolute;top:!1300;transform:!translate3d(0,0,0)"
-
-
-
 
       width="800" height="600">
 
@@ -43,6 +82,10 @@
     <script type="text/javascript" src="js/bootstrap-4.3.1.bundle.min.js"></script>
     <script type="text/javascript" src="js/d3-5.9.7.min.js"></script>
     <script type="text/javascript" src="js/skrollr.min.js"></script>
+    <script src="https://unpkg.com/d3@5.9.1/dist/d3.min.js"></script>
+    <script src="https://unpkg.com/
+    intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script type="text/javascript" src="js/scrollama.min.js"></script>
 
     <script type="text/javascript">
 
