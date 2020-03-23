@@ -5,6 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- SCRIPTS -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/intersection-observer"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
@@ -35,13 +44,19 @@
 
 
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/intersection-observer"></script>
-    <script src="https://unpkg.com/scrollama"></script>
+  <div id='button-map'>
+  <img src="../svgs/hexmap_blank.svg">
+  </div>
+
+  <div id='A' class="btn btn-primary">
+    test
+  </div>
+
+  <div>
+    <p class="text">DFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJF</p>
+
+  </div>
+
     <script>
 
       // instantiate the scrollama
@@ -54,30 +69,36 @@
           "offset" : 0.5,
         })
 
-        .onStepEnter(response => {
+        .onStepEnter(response => { console.log
+
+          if ($(response.element).data('step')=='a'){
+              $('#map').html('<img src="../svgs/hexmap_blank.svg">')
+          }
+
+
+          if ($(response.element).data('step')=='b'){
+              $('#map').html('<img src="../svgs/hexmap_sexmandates.svg">')
+          }
+        });
+
           // { element, index, direction }
           // $('#map').css("background-color", "green")
-          $('#map').html('<img src="../svgs/hexmap_blank.svg">')
-        })
-
-        .onStepExit(response => {
-          // { element, index, direction }
-          // $('#map').css("background-color", "blue")
-        $('#map').html('<img src="../svgs/hexmap_sexmandates.svg">')
-        });
+        // .onStepExit(response => {
+        //   // { element, index, direction }
+        //   // $('#map').css("background-color", "blue")
+        // $('#map').html('<img src="../svgs/hexmap_sexmandates.svg">')
+        // });
 
 
       // setup resize event
       window.addEventListener("resize", scroller.resize);
 
-    </script>
+      $('#A').click(() => {
 
-  <div>
-    <p class="text">DFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJF</p>
+        $('#button-map img').attr('src', '../svgs/hexmap_sexmandates.svg')
+      })
 
-  </div>
-
-
+</script>
 
   </body>
 </html>
