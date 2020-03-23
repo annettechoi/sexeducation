@@ -1,99 +1,83 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Sex Education</title>
+
+    <section id="intro">
+      <h1 class="intro_hed">Sex Ed After #MeToo: Not Much Has Changed</h1>
+      <p class="intro_dek">Only 29 U.S. states require sex education. What are they teaching, and what's being left out?</p>
+      <p class="byline">By Annette Choi</p>
+    </section>
 
 
-    <%= include("partials/_seo.html") %>
-
-    <style>
-      #scroll_counter{
-        position:fixed;
-        top:0;
-        left:0;
-      }
-    </style>
-    <title>Hello, world!</title>
   </head>
-
   <body>
-    <div id="scroll_counter"></div>
-    <div class="container" style="padding:1000px 0;">
 
-<!--SCROLLAMA HTML-->
+<section id="scrolly">
+  <article>
+    <div class="step" data-step="a">Currently in the United States, there are no federal mandates enforcing sex education. It's up to each state to decide if and what to teach.</div>
+    <div class="step" data-step="b">B</div>
+    <div class="step" data-step="c">C</div>
 
-<section id='scroll'>
-  <!-- graphic container -->
-  <div class='scroll__graphic'>
-    <!-- actual graphic/chart -->
-    <div class='chart'>
-      <p>0</p>
-    </div>
-  </div>
+    <div id="map"></div>
 
- <!-- step/text container --> 
- <div class='scroll__text'>
-    <div class='step' data-step='1'>
-      <p>STEP 1</p>
-    </div>
-    <div class='step' data-step='2'>
-      <p>STEP 2</p>
-    </div>
-   <div class='step' data-step='3'>
-      <p>STEP 3</p>
-   </div>
-   <div class='step' data-step='4'>
-      <p>STEP 4</p>
-   </div>
-  </div>
+
+  </article>
 </section>
 
 
 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/intersection-observer"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+    <script>
+
+      // instantiate the scrollama
+      const scroller = scrollama();
+
+      // setup the instance, pass callback functions
+      scroller
+        .setup({
+          "step": ".step",
+          "offset" : 0.5,
+        })
+
+        .onStepEnter(response => {
+          // { element, index, direction }
+          // $('#map').css("background-color", "green")
+          $('#map').html('<img src="../svgs/hexmap_blank.svg">')
+        })
+
+        .onStepExit(response => {
+          // { element, index, direction }
+          // $('#map').css("background-color", "blue")
+        $('#map').html('<img src="../svgs/hexmap_sexmandates.svg">')
+        });
 
 
+      // setup resize event
+      window.addEventListener("resize", scroller.resize);
 
-
-
-
-
-
-
-<!--circles-->
-
-    <svg 
-      data-0="position:relative;top:!0;transform:!translate3d(0,0,0)" 
-      data-center-center="position:fixed;top:!50%;transform:!translate3d(0,-50%,0)"
-      data-1300="position:absolute;top:!1300;transform:!translate3d(0,0,0)"
-
-      width="800" height="600">
-
-      <circle cx="100" cy="200" r="100" fill="blue"></circle>
-      <circle cx="300" cy="200" r="100" fill="blue"></circle>
-      <circle cx="500" cy="200" r="100" fill="blue"></circle>
-      <circle cx="700" cy="200" r="100" fill="blue"></circle>
-
-    </svg>
-
-    </div>
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap-4.3.1.bundle.min.js"></script>
-    <script type="text/javascript" src="js/d3-5.9.7.min.js"></script>
-    <script type="text/javascript" src="js/skrollr.min.js"></script>
-    <script src="https://unpkg.com/d3@5.9.1/dist/d3.min.js"></script>
-    <script src="https://unpkg.com/
-    intersection-observer@0.5.1/intersection-observer.js"></script>
-    <script type="text/javascript" src="js/scrollama.min.js"></script>
-
-    <script type="text/javascript">
-
-      const s = skrollr.init();
-       $(window).on("scroll", function(){
-       $("#scroll_counter").text(Math.round($(window).scrollTop()))
-  })
     </script>
+
+  <div>
+    <p class="text">DFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJFDFDLJKSDLFKSFKLDFSKDJFLSDJFKLDSJFLSKJF</p>
+
+  </div>
+
+
 
   </body>
 </html>
